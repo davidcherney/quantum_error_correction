@@ -1,5 +1,4 @@
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister
-from qiskit.quantum_info import partial_trace
 
 def shor_encode(n_qubits, state_vectors):
     """
@@ -69,12 +68,5 @@ def shor_decode(n_qubits=1):
     return qc
 
 
-def trace_over_ancilla_qubits(statevector, n_qubits=1):
-    """Reduces the statevector from the 9*n_qubit system 
-    to the n_qubit system by taking a partial trace over auxiliary qubits."""
-    total_qubits = 9 * n_qubits
-    keep_indices = [i * 9 for i in range(n_qubits)]
-    trace_indices = [i for i in range(total_qubits) if i not in keep_indices]
-    reduced_state = partial_trace(statevector, trace_indices)
-    return reduced_state
+
     
