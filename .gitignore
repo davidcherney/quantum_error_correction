@@ -5,5 +5,5 @@
 .DS_Store
 *.log
 .env
-__pycache__
+*__pycache__*
 *.txt
